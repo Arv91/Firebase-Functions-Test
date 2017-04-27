@@ -16,9 +16,9 @@ exports.updateHtml = functions.database.ref('/counter')
     // if (eventSnapshot.changed()) {
     //   return eventSnapshot.val();
     // }
-	var profilePictureSnapshot2 = eventSnapshot.child('something2');
-    var profilePictureSnapshot = eventSnapshot.child('something');
-    if (profilePictureSnapshot2.changed()) {
-      return profilePictureSnapshot.ref.update({ something : profilePictureSnapshot2.val() + 1 });
+	var userDataSnapshot = eventSnapshot.child('userdata');
+    //var updateUserDataSnapshot = eventSnapshot.child('something');
+    if (userDataSnapshot.changed()) {
+      return eventSnapshot.ref.update({ updateddata : userDataSnapshot.val()});
     }
 });
